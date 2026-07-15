@@ -27,6 +27,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(250, 250, 250, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 250, 250, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 0%, black, transparent 72%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -47,5 +60,14 @@ a {
 
   .section-padding {
     padding-block: clamp(5rem, 9vw, 8rem);
+  }
+
+  .motion-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .motion-card:hover {
+    transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
   }
 }

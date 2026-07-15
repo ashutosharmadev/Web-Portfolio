@@ -22,7 +22,7 @@ export function About() {
         </FadeIn>
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <FadeIn>
-            <Card className="glass h-full p-7">
+            <Card className="glass motion-card h-full p-7 transition-transform duration-500">
               <p className="text-lg leading-8 text-muted">
                 Currently, I am building LiftLens, an AI-powered fitness
                 progress tracker that uses computer vision to make physique
@@ -35,7 +35,7 @@ export function About() {
           <div className="grid gap-5 sm:grid-cols-3">
             {highlights.map((item, index) => (
               <FadeIn key={item.label} delay={index * 0.08}>
-                <Card className="group h-full p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:bg-card">
+                <Card className="motion-card group h-full p-6 transition-all duration-500 hover:border-accent/45 hover:bg-card">
                   <item.icon
                     className="mb-8 text-accent transition-transform duration-300 group-hover:scale-110"
                     size={28}

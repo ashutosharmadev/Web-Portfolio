@@ -25,7 +25,7 @@ export function Skills() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {skillGroups.map((group, index) => (
             <FadeIn key={group.title} delay={index * 0.07}>
-              <Card className="group h-full overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-glow">
+              <Card className="motion-card group h-full overflow-hidden p-6 transition-all duration-500 hover:border-accent/50 hover:shadow-glow">
                 <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-accent transition-colors group-hover:border-accent/50 group-hover:bg-accent/10">
                   <group.icon size={22} aria-hidden="true" />
                 </div>

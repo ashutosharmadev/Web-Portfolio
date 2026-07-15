@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowUpRight, Github } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FadeIn } from "@/components/motion";
@@ -19,6 +22,10 @@ export function ProjectCard() {
         </FadeIn>
 
         <FadeIn>
+          <motion.div
+            whileHover={{ y: -8 }}
+            transition={{ type: "spring", stiffness: 180, damping: 22 }}
+          >
           <Card className="glass overflow-hidden">
             <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="p-7 sm:p-10">
@@ -37,13 +44,18 @@ export function ProjectCard() {
                 </p>
 
                 <div className="mt-7 flex flex-wrap gap-2">
-                  {tech.map((item) => (
-                    <span
+                  {tech.map((item, index) => (
+                    <motion.span
                       key={item}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -3, scale: 1.05 }}
+                      transition={{ duration: 0.35, delay: index * 0.04 }}
                       className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-blue-200"
                     >
                       {item}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
@@ -70,31 +82,48 @@ export function ProjectCard() {
                     <span className="h-3 w-3 rounded-full bg-green-400" />
                   </div>
                   <div className="grid h-[250px] grid-cols-2 gap-4">
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                    >
                       <div className="h-full rounded-xl bg-gradient-to-b from-accent/30 to-white/[0.03]" />
-                    </div>
+                    </motion.div>
                     <div className="space-y-4">
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                      <motion.div
+                        animate={{ x: [0, 8, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                      >
                         <div className="mb-3 h-2 w-16 rounded-full bg-accent/70" />
                         <div className="h-2 w-full rounded-full bg-white/10" />
                         <div className="mt-3 h-2 w-3/4 rounded-full bg-white/10" />
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                      </motion.div>
+                      <motion.div
+                        animate={{ x: [0, -8, 0] }}
+                        transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                      >
                         <div className="grid grid-cols-3 gap-2">
                           <div className="h-16 rounded-xl bg-accent/20" />
                           <div className="h-16 rounded-xl bg-white/10" />
                           <div className="h-16 rounded-xl bg-cyan-300/15" />
                         </div>
-                      </div>
-                      <div className="rounded-2xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-blue-100">
+                      </motion.div>
+                      <motion.div
+                        animate={{ opacity: [0.75, 1, 0.75] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="rounded-2xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-blue-100"
+                      >
                         Progress insight generated
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </Card>
+          </motion.div>
         </FadeIn>
       </div>
     </section>

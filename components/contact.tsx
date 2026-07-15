@@ -31,7 +31,7 @@ export function Contact() {
                 aria-label={`Open ${link.label}`}
                 className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <Card className="h-full p-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/50 group-hover:bg-card">
+                <Card className="motion-card h-full p-6 transition-all duration-500 group-hover:border-accent/50 group-hover:bg-card">
                   <link.icon
                     className="mb-8 text-accent transition-transform duration-300 group-hover:scale-110"
                     size={28}
